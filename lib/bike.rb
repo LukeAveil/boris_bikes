@@ -8,10 +8,6 @@ class Bike
 		@bike_working
 	end
 
-	def broken?
-		!@bike_working
-	end
-
 	def report_broken
 		@bike_working = false
 	end

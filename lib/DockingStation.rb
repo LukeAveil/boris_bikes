@@ -13,7 +13,7 @@ class DockingStation
 
 	def release_bike
 		fail "There are no bikes" if empty?
-		fail "The bike is broken" if bikes.last.broken?
+		fail "The bike is broken" if bikes.last.working? == false
 		bikes.pop
 	end
 
