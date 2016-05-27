@@ -13,14 +13,17 @@ class DockingStation
 
 	def release_bike
 		fail "There are no bikes" if empty?
-		fail "The bike is broken" if bikes.last.working? == false
+		fail "There are no working bikes" if bikes.last.working? == false
 		bikes.pop
 	end
 
 	def dock (bike)
 		fail "This station is full" if full?
-		bikes << bike
-		bike
+		if bike.working?
+			bikes << bike
+		else
+			bikes.unshift(bike)
+		end
 	end
 
 	private
